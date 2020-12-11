@@ -366,7 +366,8 @@ public class JrfmReserva extends JPanel {
        Map< String, Object> parametros = new HashMap<>();
        paremetros.put("param_nome", "%"  + txt_nome.getText() + "%" );
         
-          JasperPrint relatorio = JasperFillManager.fillReport("./relatorio/report_joao_parametro.jasper", parametros, Conexao.getconexao); // TODO add your handling code here:
+          
+       JasperPrint relatorio = JasperFillManager.fillReport("./relatorio/report_joao_parametro.jasper", parametros, Conexao.getConexao); // TODO add your handling code here:
        JasperViewer visualizador = new JasperViewer(relatorio, false);
        visualizador.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
