@@ -16,6 +16,9 @@
 	<parameter name="parnam_nome" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="param_titulo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      carro.`modelo` AS carro_modelo,
@@ -41,13 +44,13 @@ where cliente.nome like $P{parnam_nome}]]>
 			</image>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="623049d0-0cfd-4d1b-9527-a0b16bfdeae2"/>
-				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="088e5843-6683-4422-a38a-4656d0eaf951"/>
+				<textField>
+					<reportElement mode="Transparent" x="92" y="25" width="266" height="75" forecolor="#FFFFFF" backcolor="#000000" uuid="19505abe-87a7-4469-9b3b-c831fcfb5e2b"/>
 					<textElement>
-						<font isBold="false"/>
+						<font size="36"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
-				</staticText>
+					<textFieldExpression><![CDATA[Cad Cliente]]></textFieldExpression>
+				</textField>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="57143a81-0654-4086-a21a-3adaa96d6964"/>
@@ -100,7 +103,7 @@ where cliente.nome like $P{parnam_nome}]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{carro_modelo}]]></textFieldExpression>
 				</textField>
-				<textField isStretchWithOverflow="true">
+				<textField isStretchWithOverflow="true" pattern="d/M/Y">
 					<reportElement style="Detail" positionType="Float" x="185" y="0" width="185" height="18" uuid="2798170f-f6dd-4cf6-8899-4da71cd20ae5"/>
 					<textElement>
 						<font size="14"/>
