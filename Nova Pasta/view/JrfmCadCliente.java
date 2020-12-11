@@ -67,6 +67,7 @@ public class JrfmCadCliente extends JPanel {
         jButton1 = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         nomeLabel = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -142,6 +143,9 @@ public class JrfmCadCliente extends JPanel {
 
         nomeLabel.setText("Nome:");
 
+        jButton3.setText("Relatório/Joao");
+        jButton3.addActionListener(formListener);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -151,6 +155,8 @@ public class JrfmCadCliente extends JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(newButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,7 +177,7 @@ public class JrfmCadCliente extends JPanel {
                             .addComponent(nomeField)
                             .addComponent(telefoneField)
                             .addComponent(cpfField)))
-                    .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE))
+                    .addComponent(masterScrollPane))
                 .addContainerGap())
         );
 
@@ -204,7 +210,8 @@ public class JrfmCadCliente extends JPanel {
                     .addComponent(refreshButton)
                     .addComponent(deleteButton)
                     .addComponent(newButton)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
@@ -226,7 +233,7 @@ public class JrfmCadCliente extends JPanel {
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txt_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                        .addComponent(txt_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)))
                 .addContainerGap())
@@ -251,7 +258,7 @@ public class JrfmCadCliente extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -276,17 +283,20 @@ public class JrfmCadCliente extends JPanel {
             else if (evt.getSource() == refreshButton) {
                 JrfmCadCliente.this.refreshButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == newButton) {
-                JrfmCadCliente.this.newButtonActionPerformed(evt);
-            }
             else if (evt.getSource() == deleteButton) {
                 JrfmCadCliente.this.deleteButtonActionPerformed(evt);
             }
             else if (evt.getSource() == jButton1) {
                 JrfmCadCliente.this.jButton1ActionPerformed(evt);
             }
+            else if (evt.getSource() == newButton) {
+                JrfmCadCliente.this.newButtonActionPerformed(evt);
+            }
             else if (evt.getSource() == jButton2) {
                 JrfmCadCliente.this.jButton2ActionPerformed(evt);
+            }
+            else if (evt.getSource() == jButton3) {
+                JrfmCadCliente.this.jButton3ActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -370,6 +380,20 @@ public class JrfmCadCliente extends JPanel {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false);
+        
+        try {
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorio/report_joao_tabelas.jasper", null, dados);
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+            visualizador.setVisible(true);
+        
+        }catch(JRException ex){
+            System.out.println("Erro" + ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpfField;
@@ -380,6 +404,7 @@ public class JrfmCadCliente extends JPanel {
     private javax.swing.JLabel idclienteLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
