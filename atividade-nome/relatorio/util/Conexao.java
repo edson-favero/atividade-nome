@@ -18,19 +18,23 @@ import view.JrfmReserva;
  * @author User
  */
 public class Conexao {
-    private Connection conexao;
-    private Conexao(){};
-    public Connection getConexao(){
-    if (conexao ==null)
-    {   try {
-        Class.forName("com.mysql.jdbc.Driver");
-        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/reserva_relatorio", "roy", "");
+    
+    
+    private static Connection conexao;
+    private Conexao(){}
+    public static Connection getConexao(){
+    if (conexao == null)
+    { 
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/reserva_relatorio", "root", "");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+        }
     return conexao;
-    }
 }
+}
+
