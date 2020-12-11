@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import view.JrfmReserva;
+
 
 /**
  *
@@ -27,7 +27,7 @@ public class Conexao {
     { 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/reserva_relatorio", "root", "");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/reserva_relatorio", "root", "vertrigo");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

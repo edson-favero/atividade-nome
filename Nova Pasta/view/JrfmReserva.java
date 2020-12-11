@@ -66,10 +66,6 @@ public class JrfmReserva extends JPanel {
         jButton1 = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         dataLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_nome = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
 
         FormListener formListener = new FormListener();
 
@@ -220,40 +216,6 @@ public class JrfmReserva extends JPanel {
 
         jTabbedPane1.addTab("tab1", jPanel1);
 
-        jLabel1.setText("Nome");
-
-        txt_nome.addActionListener(formListener);
-
-        jButton2.setText("Gerar relatório");
-        jButton2.addActionListener(formListener);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 206, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -282,9 +244,6 @@ public class JrfmReserva extends JPanel {
             if (evt.getSource() == saveButton) {
                 JrfmReserva.this.saveButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == refreshButton) {
-                JrfmReserva.this.refreshButtonActionPerformed(evt);
-            }
             else if (evt.getSource() == newButton) {
                 JrfmReserva.this.newButtonActionPerformed(evt);
             }
@@ -294,11 +253,8 @@ public class JrfmReserva extends JPanel {
             else if (evt.getSource() == jButton1) {
                 JrfmReserva.this.jButton1ActionPerformed(evt);
             }
-            else if (evt.getSource() == jButton2) {
-                JrfmReserva.this.jButton2ActionPerformed(evt);
-            }
-            else if (evt.getSource() == txt_nome) {
-                JrfmReserva.this.txt_nomeActionPerformed(evt);
+            else if (evt.getSource() == refreshButton) {
+                JrfmReserva.this.refreshButtonActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -362,20 +318,6 @@ public class JrfmReserva extends JPanel {
         visualizador.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Map< String, Object> parametros = new HashMap<>();
-       paremetros.put("param_nome", "%"  + txt_nome.getText() + "%" );
-        
-          
-       JasperPrint relatorio = JasperFillManager.fillReport("./relatorio/report_joao_parametro.jasper", parametros, Conexao.getConexao); // TODO add your handling code here:
-       JasperViewer visualizador = new JasperViewer(relatorio, false);
-       visualizador.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomeActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel carroIdcarroLabel;
@@ -387,13 +329,10 @@ public class JrfmReserva extends JPanel {
     private javax.swing.JTextField idreservaField;
     private javax.swing.JLabel idreservaLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private java.util.List<view.Reserva> list;
     private java.util.List<Carro> listCarro;
@@ -406,7 +345,6 @@ public class JrfmReserva extends JPanel {
     private javax.persistence.Query queryCliente;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveButton;
-    private javax.swing.JTextField txt_nome;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     public static void main(String[] args) {
