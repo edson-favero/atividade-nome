@@ -5,6 +5,7 @@
     <class>view.Cliente</class>
     <class>view.Carro</class>
     <class>view.Reserva</class>
+    <class>view.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/reserva_relatorio?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
