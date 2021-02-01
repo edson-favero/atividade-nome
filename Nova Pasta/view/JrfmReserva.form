@@ -115,8 +115,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="Cadastro">
+                <Property name="tabTitle" type="java.lang.String" value="Cadastro"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -191,7 +191,7 @@
                           <Title/>
                           <Editor/>
                           <Renderer editor="org.netbeans.modules.form.ComponentChooserEditor">
-                            <ComponentRef name="dateCellRender1"/>
+                            <ComponentRef name="default"/>
                           </Renderer>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
@@ -253,9 +253,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                          <Component id="dateCellRender1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -279,7 +277,6 @@
                               <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="newButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateCellRender1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -333,8 +330,6 @@
                     <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
                   </AuxValues>
-                </Component>
-                <Component class="render.DateCellRender" name="dateCellRender1">
                 </Component>
                 <Component class="javax.swing.JButton" name="newButton">
                   <Properties>
@@ -482,8 +477,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab2">
-                <Property name="tabTitle" type="java.lang.String" value="tab2"/>
+              <JTabbedPaneConstraints tabName="Consulta Relat&#xf3;rio">
+                <Property name="tabTitle" type="java.lang.String" value="Consulta Relat&#xf3;rio"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

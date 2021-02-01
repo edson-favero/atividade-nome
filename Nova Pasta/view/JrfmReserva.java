@@ -59,7 +59,6 @@ public class JrfmReserva extends JPanel {
         jButton1 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
-        dateCellRender1 = new render.DateCellRender();
         newButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         idreservaField = new javax.swing.JTextField();
@@ -101,7 +100,7 @@ public class JrfmReserva extends JPanel {
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
         if (masterTable.getColumnModel().getColumnCount() > 0) {
-            masterTable.getColumnModel().getColumn(1).setCellRenderer(dateCellRender1);
+            masterTable.getColumnModel().getColumn(1).setCellRenderer(null);
         }
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.darkGray));
@@ -130,9 +129,7 @@ public class JrfmReserva extends JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(dateCellRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(44, 44, 44)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newButton)
@@ -156,8 +153,7 @@ public class JrfmReserva extends JPanel {
                     .addComponent(refreshButton)
                     .addComponent(deleteButton)
                     .addComponent(newButton)
-                    .addComponent(jButton1)
-                    .addComponent(dateCellRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -280,7 +276,7 @@ public class JrfmReserva extends JPanel {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Cadastro", jPanel1);
 
         jButton2.setText("Gerar Relátorio");
         jButton2.addActionListener(formListener);
@@ -306,7 +302,7 @@ public class JrfmReserva extends JPanel {
                 .addContainerGap(304, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Consulta Relatório", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -330,20 +326,20 @@ public class JrfmReserva extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
-                JrfmReserva.this.saveButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == newButton) {
-                JrfmReserva.this.newButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == deleteButton) {
-                JrfmReserva.this.deleteButtonActionPerformed(evt);
+            if (evt.getSource() == refreshButton) {
+                JrfmReserva.this.refreshButtonActionPerformed(evt);
             }
             else if (evt.getSource() == jButton1) {
                 JrfmReserva.this.jButton1ActionPerformed(evt);
             }
-            else if (evt.getSource() == refreshButton) {
-                JrfmReserva.this.refreshButtonActionPerformed(evt);
+            else if (evt.getSource() == deleteButton) {
+                JrfmReserva.this.deleteButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
+                JrfmReserva.this.saveButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == newButton) {
+                JrfmReserva.this.newButtonActionPerformed(evt);
             }
             else if (evt.getSource() == jButton2) {
                 JrfmReserva.this.jButton2ActionPerformed(evt);
@@ -436,7 +432,6 @@ public class JrfmReserva extends JPanel {
     private javax.swing.JLabel clienteIdclienteLabel;
     private javax.swing.JTextField dataField;
     private javax.swing.JLabel dataLabel;
-    private render.DateCellRender dateCellRender1;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idreservaField;
