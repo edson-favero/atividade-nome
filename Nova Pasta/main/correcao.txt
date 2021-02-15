@@ -1,0 +1,24 @@
+Relatórios
+    Relatório com parametros
+        Não estava funcionando, pois tinha o nome do parametro errado. parman_nome ao invés de param_nome
+        O componente de título estava ultrapassando os limites do container.
+        O componente de título deveria ser um static text. Foi utilizado um TextField que é utilizado para valores dinâmicos (banco e parâmetros).
+        Foi criado um parâmetro título param_titulo sem necessidade. 
+
+Formulários Gráficos:
+    Quando fechavam os formulários terminavam o programa, usou EXIT_ON_CLOSE no lugar de DISPOSE_ON_CLOSE
+    A classe de conexao estava configurada para o vertrigo e o arquivo de persitencia para o xammp. 
+
+Splash
+    Formulário splash poderia estar sem os botões de minimizar, maximizar e fechar (undecored) 
+Cliente
+    O botão consultar cliente não foi implementado. 
+Reserva
+    Não havia label para o campo de consulta e geração de relatórios.
+    Construiu o renderizador mas não usou ele, não o associou a coluna data da tabela.
+    Havia um campo de texto invisivel vinculado com o campo data que estava dando erro ao selecionar um registro na tabela, pois havia uma vinculação entre tipos diferentes string e data.
+
+Nota Final do bimestre 8, sendo:
+Atividade 1: 2 pontos
+Atividade 2: 2 pontos
+Atividade 3: 4 pontos

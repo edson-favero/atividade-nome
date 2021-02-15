@@ -353,9 +353,9 @@ public class JrfmCadCliente extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Cliente> toRemove = new ArrayList<view.Cliente>(selected.length);
+        List<model.Cliente> toRemove = new ArrayList<model.Cliente>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Cliente c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Cliente c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(c);
             entityManager.remove(c);
         }
@@ -363,7 +363,7 @@ public class JrfmCadCliente extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Cliente c = new view.Cliente();
+        model.Cliente c = new model.Cliente();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -378,8 +378,8 @@ public class JrfmCadCliente extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Cliente> merged = new ArrayList<view.Cliente>(list.size());
-            for (view.Cliente c : list) {
+            List<model.Cliente> merged = new ArrayList<model.Cliente>(list.size());
+            for (model.Cliente c : list) {
                 merged.add(entityManager.merge(c));
             }
             list.clear();
@@ -423,7 +423,7 @@ public class JrfmCadCliente extends JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private java.util.List<view.Cliente> list;
+    private java.util.List<model.Cliente> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

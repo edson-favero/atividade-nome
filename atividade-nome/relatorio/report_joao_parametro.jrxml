@@ -13,10 +13,7 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="parnam_nome" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="param_titulo" class="java.lang.String">
+	<parameter name="param_nome" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -28,7 +25,7 @@ FROM
      `carro` carro INNER JOIN `reserva` reserva ON carro.`idcarro` = reserva.`carro_idcarro`
      INNER JOIN `cliente` cliente ON reserva.`cliente_idcliente` = cliente.`idcliente`
 
-where cliente.nome like $P{parnam_nome}]]>
+where cliente.nome like $P{param_nome}]]>
 	</queryString>
 	<field name="carro_modelo" class="java.lang.String"/>
 	<field name="reserva_data" class="java.sql.Date"/>
@@ -39,18 +36,18 @@ where cliente.nome like $P{parnam_nome}]]>
 	<title>
 		<band height="132" splitType="Stretch">
 			<image>
-				<reportElement x="456" y="0" width="99" height="132" uuid="ab5532d7-1c2b-4b13-aacc-a09d427b57a0"/>
+				<reportElement x="454" y="0" width="99" height="132" uuid="ab5532d7-1c2b-4b13-aacc-a09d427b57a0"/>
 				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
 			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="623049d0-0cfd-4d1b-9527-a0b16bfdeae2"/>
-				<textField>
-					<reportElement mode="Transparent" x="92" y="25" width="266" height="75" forecolor="#FFFFFF" backcolor="#000000" uuid="19505abe-87a7-4469-9b3b-c831fcfb5e2b"/>
+				<reportElement mode="Opaque" x="3" y="0" width="451" height="95" forecolor="#FFFFFF" backcolor="#000000" uuid="623049d0-0cfd-4d1b-9527-a0b16bfdeae2"/>
+				<staticText>
+					<reportElement x="107" y="41" width="207" height="30" forecolor="#FFFFFF" uuid="5be7416a-1657-4dec-afd3-95f95fedf906"/>
 					<textElement>
-						<font size="36"/>
+						<font size="18"/>
 					</textElement>
-					<textFieldExpression><![CDATA[Cad Cliente]]></textFieldExpression>
-				</textField>
+					<text><![CDATA[Relatório de reservas]]></text>
+				</staticText>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="57143a81-0654-4086-a21a-3adaa96d6964"/>
@@ -70,7 +67,7 @@ where cliente.nome like $P{parnam_nome}]]>
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="0" y="7" width="185" height="18" forecolor="#000000" uuid="b9f57478-197c-465e-8c33-e807dec68b6d"/>
+				<reportElement style="Column header" x="2" y="7" width="185" height="18" forecolor="#000000" uuid="b9f57478-197c-465e-8c33-e807dec68b6d"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>

@@ -24,7 +24,7 @@ public class JFrmSplash extends javax.swing.JFrame {
     public JFrmSplash() {
         initComponents();
     
-    timer = new Timer(100, new ActionListener()
+    timer = new Timer(50, new ActionListener()
     {
         @Override 
     public void actionPerformed(ActionEvent e){
@@ -53,6 +53,7 @@ public class JFrmSplash extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
         getContentPane().add(jProgressBar2);
         jProgressBar2.setBounds(10, 260, 480, 14);
@@ -61,7 +62,7 @@ public class JFrmSplash extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 500, 280);
 
-        setSize(new java.awt.Dimension(516, 316));
+        setSize(new java.awt.Dimension(500, 277));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -76,7 +77,7 @@ public class JFrmSplash extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

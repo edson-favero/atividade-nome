@@ -147,8 +147,8 @@ public class JrfmCadCarro extends JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idcarroLabel)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(idcarroLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(idcarroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,20 +257,20 @@ public class JrfmCadCarro extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
-                JrfmCadCarro.this.saveButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == refreshButton) {
-                JrfmCadCarro.this.refreshButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == newButton) {
+            if (evt.getSource() == newButton) {
                 JrfmCadCarro.this.newButtonActionPerformed(evt);
             }
             else if (evt.getSource() == deleteButton) {
                 JrfmCadCarro.this.deleteButtonActionPerformed(evt);
             }
+            else if (evt.getSource() == saveButton) {
+                JrfmCadCarro.this.saveButtonActionPerformed(evt);
+            }
             else if (evt.getSource() == jButton1) {
                 JrfmCadCarro.this.jButton1ActionPerformed(evt);
+            }
+            else if (evt.getSource() == refreshButton) {
+                JrfmCadCarro.this.refreshButtonActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -291,9 +291,9 @@ public class JrfmCadCarro extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Carro> toRemove = new ArrayList<view.Carro>(selected.length);
+        List<model.Carro> toRemove = new ArrayList<model.Carro>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Carro c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Carro c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(c);
             entityManager.remove(c);
         }
@@ -301,7 +301,7 @@ public class JrfmCadCarro extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Carro c = new view.Carro();
+        model.Carro c = new model.Carro();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -316,8 +316,8 @@ public class JrfmCadCarro extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Carro> merged = new ArrayList<view.Carro>(list.size());
-            for (view.Carro c : list) {
+            List<model.Carro> merged = new ArrayList<model.Carro>(list.size());
+            for (model.Carro c : list) {
                 merged.add(entityManager.merge(c));
             }
             list.clear();
@@ -351,7 +351,7 @@ public class JrfmCadCarro extends JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.util.List<view.Carro> list;
+    private java.util.List<model.Carro> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JTextField modeloField;
@@ -393,8 +393,10 @@ public class JrfmCadCarro extends JPanel {
             public void run() {
                 JFrame frame = new JFrame();
                 frame.setContentPane(new JrfmCadCarro());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Formulário de cadastro de carros");
                 frame.setVisible(true);
             }
         });

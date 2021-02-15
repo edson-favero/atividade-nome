@@ -251,9 +251,9 @@ public class JrfmCadUsuario extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Usuario> toRemove = new ArrayList<view.Usuario>(selected.length);
+        List<model.Usuario> toRemove = new ArrayList<model.Usuario>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            view.Usuario u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            model.Usuario u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(u);
             entityManager.remove(u);
         }
@@ -261,7 +261,7 @@ public class JrfmCadUsuario extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Usuario u = new view.Usuario();
+        model.Usuario u = new model.Usuario();
         entityManager.persist(u);
         list.add(u);
         int row = list.size() - 1;
@@ -276,8 +276,8 @@ public class JrfmCadUsuario extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Usuario> merged = new ArrayList<view.Usuario>(list.size());
-            for (view.Usuario u : list) {
+            List<model.Usuario> merged = new ArrayList<model.Usuario>(list.size());
+            for (model.Usuario u : list) {
                 merged.add(entityManager.merge(u));
             }
             list.clear();
@@ -294,7 +294,7 @@ public class JrfmCadUsuario extends JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.util.List<view.Usuario> list;
+    private java.util.List<model.Usuario> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;
@@ -337,8 +337,10 @@ public class JrfmCadUsuario extends JPanel {
             public void run() {
                 JFrame frame = new JFrame();
                 frame.setContentPane(new JrfmCadUsuario());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);                
                 frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Formulário de cadastro de usuários");
                 frame.setVisible(true);
             }
         });
